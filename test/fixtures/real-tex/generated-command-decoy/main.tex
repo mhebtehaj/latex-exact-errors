@@ -1,0 +1,9 @@
+\documentclass{article}
+\usepackage{amsmath}
+\errorcontextlines=50
+\newcommand{\unusedformula}{\alhpa}
+\edef\generated{\expandafter\noexpand\csname alhpa\endcsname}
+\expandafter\let\csname alhpa\endcsname\undefined
+\begin{document}
+$\generated$
+\end{document}

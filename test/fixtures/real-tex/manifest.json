@@ -1,0 +1,874 @@
+[
+  {
+    "name": "inline",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "main.tex",
+        "start": 94,
+        "end": 100,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 94,
+        "end": 100,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": ""
+  },
+  {
+    "name": "align",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "main.tex",
+        "start": 106,
+        "end": 112,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 106,
+        "end": 112,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": ""
+  },
+  {
+    "name": "gather",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "main.tex",
+        "start": 103,
+        "end": 109,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 103,
+        "end": 109,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": ""
+  },
+  {
+    "name": "multline",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "main.tex",
+        "start": 110,
+        "end": 116,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 110,
+        "end": 116,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": ""
+  },
+  {
+    "name": "align-repeated",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "main.tex",
+        "start": 110,
+        "end": 116,
+        "command": "\\alhpa"
+      },
+      {
+        "file": "main.tex",
+        "start": 134,
+        "end": 140,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 110,
+        "end": 116,
+        "command": "\\alhpa"
+      },
+      {
+        "file": "main.tex",
+        "start": 134,
+        "end": 140,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": "Both occurrences execute. Context must select the occurrence for each distinct error, with duplicates allowed.",
+    "recordExactCycle": [
+      0,
+      1
+    ]
+  },
+  {
+    "name": "same-line-repeated",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "main.tex",
+        "start": 91,
+        "end": 97,
+        "command": "\\alhpa"
+      },
+      {
+        "file": "main.tex",
+        "start": 113,
+        "end": 119,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 91,
+        "end": 97,
+        "command": "\\alhpa"
+      },
+      {
+        "file": "main.tex",
+        "start": 113,
+        "end": 119,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": "",
+    "recordExactCycle": [
+      0,
+      1
+    ]
+  },
+  {
+    "name": "macro-definition",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "main.tex",
+        "start": 91,
+        "end": 97,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 91,
+        "end": 97,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": ""
+  },
+  {
+    "name": "macro-nested",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "main.tex",
+        "start": 94,
+        "end": 100,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 94,
+        "end": 100,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": ""
+  },
+  {
+    "name": "included-macro",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex",
+      "parts/macros.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "parts/macros.tex",
+        "start": 24,
+        "end": 30,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "parts/macros.tex",
+        "start": 24,
+        "end": 30,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": ""
+  },
+  {
+    "name": "paths-with-spaces",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex",
+      "chapter macros/definitions.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "chapter macros/definitions.tex",
+        "start": 24,
+        "end": 30,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "chapter macros/definitions.tex",
+        "start": 24,
+        "end": 30,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": ""
+  },
+  {
+    "name": "unicode-and-tabs",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "main.tex",
+        "start": 138,
+        "end": 144,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 138,
+        "end": 144,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": ""
+  },
+  {
+    "name": "crlf",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "main.tex",
+        "start": 96,
+        "end": 102,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 96,
+        "end": 102,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": ""
+  },
+  {
+    "name": "long-line",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "main.tex",
+        "start": 697,
+        "end": 703,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 697,
+        "end": 703,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": ""
+  },
+  {
+    "name": "escaped-percent",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "main.tex",
+        "start": 118,
+        "end": 124,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 118,
+        "end": 124,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": ""
+  },
+  {
+    "name": "discarded-argument",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "main.tex",
+        "start": 131,
+        "end": 137,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 131,
+        "end": 137,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": "First occurrence on the same line is never executed."
+  },
+  {
+    "name": "verb-inline-decoy",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "main.tex",
+        "start": 111,
+        "end": 117,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 111,
+        "end": 117,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": ""
+  },
+  {
+    "name": "comment-and-verbatim-decoys",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "main.tex",
+        "start": 152,
+        "end": 158,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 152,
+        "end": 158,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": ""
+  },
+  {
+    "name": "inactive-branch",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [],
+    "noExact": false,
+    "expectCompilerError": false,
+    "note": "Source presence is not a compiler error."
+  },
+  {
+    "name": "comments-and-verbatim-only",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [],
+    "noExact": false,
+    "expectCompilerError": false,
+    "note": ""
+  },
+  {
+    "name": "custom-macros-correct",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [],
+    "noExact": false,
+    "expectCompilerError": false,
+    "note": ""
+  },
+  {
+    "name": "inactive-definition-decoy",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 138,
+        "end": 144,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": "Only the second definition is active. Candidate is acceptable; first definition must never be exact."
+  },
+  {
+    "name": "duplicate-definition",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [],
+    "noExact": true,
+    "expectCompilerError": true,
+    "note": "Identical logged expansions do not prove which definition was active without execution modeling."
+  },
+  {
+    "name": "macro-argument-shadow",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 137,
+        "end": 143,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": "Only the second argument is expanded. Do not choose the first lexical match."
+  },
+  {
+    "name": "macro-body-and-argument",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 97,
+        "end": 103,
+        "command": "\\alhpa"
+      },
+      {
+        "file": "main.tex",
+        "start": 134,
+        "end": 140,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": "Two different origin roles contain the same spelling; non-exact is acceptable."
+  },
+  {
+    "name": "generated-command-absent",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [],
+    "noExact": true,
+    "expectCompilerError": true,
+    "note": "The failing control sequence was generated and has no source token."
+  },
+  {
+    "name": "generated-command-decoy",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [],
+    "noExact": true,
+    "expectCompilerError": true,
+    "note": "A same-spelled token in an unused macro is not the origin of the generated failure."
+  },
+  {
+    "name": "catcode-escape",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [],
+    "noExact": true,
+    "expectCompilerError": true,
+    "note": "The escape character is changed; the displayed command is absent as a source control sequence."
+  },
+  {
+    "name": "missing-brace",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [],
+    "noExact": true,
+    "expectCompilerError": true,
+    "note": "A runaway argument has no uniquely justified missing-character range."
+  },
+  {
+    "name": "environment-mismatch",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [],
+    "noExact": true,
+    "expectCompilerError": true,
+    "note": "Structural recovery must not pretend that an undefined-command source match was established."
+  },
+  {
+    "name": "same-basename-includes",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex",
+      "first/macros.tex",
+      "second/macros.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "second/macros.tex",
+        "start": 26,
+        "end": 32,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "second/macros.tex",
+        "start": 26,
+        "end": 32,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": ""
+  },
+  {
+    "name": "included-direct-error",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex",
+      "chapter/body.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "chapter/body.tex",
+        "start": 16,
+        "end": 22,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "chapter/body.tex",
+        "start": 16,
+        "end": 22,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": ""
+  },
+  {
+    "name": "no-file-line-inline",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "main.tex",
+        "start": 92,
+        "end": 98,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "main.tex",
+        "start": 92,
+        "end": 98,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": "",
+    "fileLineError": false
+  },
+  {
+    "name": "no-file-line-included",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex",
+      "chapter/body.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [
+      {
+        "file": "chapter/body.tex",
+        "start": 16,
+        "end": 22,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": "Traditional log without file-line headers may abstain, but may not attribute an included error to the root.",
+    "fileLineError": false
+  },
+  {
+    "name": "two-included-errors",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex",
+      "first/body.tex",
+      "second/body.tex"
+    ],
+    "requiredExact": [
+      {
+        "file": "first/body.tex",
+        "start": 7,
+        "end": 13,
+        "command": "\\alhpa"
+      },
+      {
+        "file": "second/body.tex",
+        "start": 8,
+        "end": 14,
+        "command": "\\alhpa"
+      }
+    ],
+    "allowedExact": [
+      {
+        "file": "first/body.tex",
+        "start": 7,
+        "end": 13,
+        "command": "\\alhpa"
+      },
+      {
+        "file": "second/body.tex",
+        "start": 8,
+        "end": 14,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "note": ""
+  },
+  {
+    "name": "dynamic-definition-shadow",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [],
+    "noExact": true,
+    "expectCompilerError": true,
+    "note": "Dynamic assignment or primitive redefinition can make a matching earlier macro body an unexecuted decoy."
+  },
+  {
+    "name": "dynamic-let-shadow",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [],
+    "noExact": true,
+    "expectCompilerError": true,
+    "note": "Dynamic assignment or primitive redefinition can make a matching earlier macro body an unexecuted decoy."
+  },
+  {
+    "name": "redefined-conditional",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [],
+    "noExact": true,
+    "expectCompilerError": true,
+    "note": "Dynamic assignment or primitive redefinition can make a matching earlier macro body an unexecuted decoy."
+  },
+  {
+    "name": "expanded-definition-name",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [],
+    "noExact": true,
+    "expectCompilerError": true,
+    "fileLineError": true,
+    "note": "Expansion can change definition targets; freeform terminal output is not a reliable file-stack delimiter."
+  },
+  {
+    "name": "no-file-line-parenthesis-output",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex",
+      "body.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [
+      {
+        "file": "body.tex",
+        "start": 13,
+        "end": 19,
+        "command": "\\alhpa"
+      }
+    ],
+    "noExact": false,
+    "expectCompilerError": true,
+    "fileLineError": false,
+    "note": "Expansion can change definition targets; freeform terminal output is not a reliable file-stack delimiter."
+  },
+  {
+    "name": "generated-argument-decoy",
+    "rootFile": "main.tex",
+    "files": [
+      "main.tex"
+    ],
+    "requiredExact": [],
+    "allowedExact": [],
+    "noExact": true,
+    "expectCompilerError": true,
+    "note": "A generated failing token in an expanded argument must not map to the same-spelled discarded argument on the call line."
+  }
+]

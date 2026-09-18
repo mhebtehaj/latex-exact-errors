@@ -1,0 +1,161 @@
+{
+  "name": "latex-exact-errors",
+  "displayName": "LaTeX Exact Errors",
+  "description": "Macro-aware live LaTeX diagnostics and precise compiler-confirmed error highlights.",
+  "version": "0.5.0",
+  "publisher": "mhebtehaj",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.95.0",
+    "node": ">=20"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "latex",
+    "diagnostics",
+    "errors"
+  ],
+  "main": "./src/extension.js",
+  "activationEvents": [
+    "onStartupFinished",
+    "onLanguage:latex"
+  ],
+  "extensionKind": [
+    "workspace"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": false,
+      "description": "Build reports read local project source files to verify error locations."
+    },
+    "virtualWorkspaces": {
+      "supported": false
+    }
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "latexExact.nextError",
+        "title": "LaTeX Exact: Next Exact Error"
+      },
+      {
+        "command": "latexExact.showDetails",
+        "title": "LaTeX Exact: Show Build Details"
+      },
+      {
+        "command": "latexExact.refresh",
+        "title": "LaTeX Exact: Refresh Build Report"
+      },
+      {
+        "command": "latexExact.enableProject",
+        "title": "LaTeX Exact: Enable for This Project"
+      },
+      {
+        "command": "latexExact.disableProject",
+        "title": "LaTeX Exact: Restore Original Build Tools"
+      }
+    ],
+    "configuration": {
+      "title": "LaTeX Exact Errors",
+      "properties": {
+        "latexExact.reportPaths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "scope": "resource",
+          "description": "Build report paths, absolute or relative to the workspace folder."
+        },
+        "latexExact.background": {
+          "type": "boolean",
+          "default": false,
+          "description": "Optionally add a background behind compiler-confirmed errors. Live findings have a separate configurable background color."
+        },
+        "latexExact.nodePath": {
+          "type": "string",
+          "default": "node",
+          "scope": "resource",
+          "description": "Node.js executable used for the build wrapper. Common macOS locations are detected automatically."
+        },
+        "latexExact.liveStructure": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource",
+          "description": "Show live structural warnings while typing, before a compiler build."
+        },
+        "latexExact.lintDelay": {
+          "type": "number",
+          "default": 300,
+          "minimum": 50,
+          "maximum": 2000,
+          "scope": "resource",
+          "description": "Milliseconds after the last edit before analyzing the current unsaved LaTeX buffers."
+        },
+        "latexExact.liveHighlightColor": {
+          "type": "string",
+          "default": "#ffd54f55",
+          "scope": "window",
+          "pattern": "^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$",
+          "description": "Live highlight background as #RRGGBB or #RRGGBBAA (the last two digits control opacity). Yellow: #ffd54f55. Red: #ff555555. Changes apply immediately."
+        },
+        "latexExact.keepLiveHighlightsWhileTyping": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource",
+          "description": "Keep live highlights on untouched tokens while typing. Editing a highlighted token clears it immediately; all findings refresh after the typing pause. Disable to clear all live highlights on each edit."
+        },
+        "latexExact.liveCheck": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource",
+          "description": "Enable macro-aware live diagnostics without saving or compiling."
+        },
+        "latexExact.liveCommands": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource",
+          "description": "Check unrecognized commands against project definitions and loaded package metadata."
+        },
+        "latexExact.additionalCommands": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "scope": "resource",
+          "description": "Additional valid command names for generated macros or unsupported definition mechanisms (with or without a leading backslash)."
+        },
+        "latexExact.ordinaryParentheses": {
+          "type": "boolean",
+          "default": false,
+          "scope": "resource",
+          "description": "Optional informational hints for ordinary parentheses. Mixed square/round intervals and sized delimiters are excluded."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "test": "node --test --test-concurrency=1 test/*.test.js",
+    "check": "node scripts/check.js",
+    "package": "node scripts/package.js",
+    "test:live-host": "node test/live-host/run.js",
+    "test:host": "node test/host/run.js",
+    "test:workshop-host": "node test/workshop-host/run.js"
+  },
+  "devDependencies": {
+    "@vscode/test-electron": "3.1.0",
+    "@vscode/vsce": "3.9.2"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mhebtehaj/latex-exact-errors.git"
+  },
+  "homepage": "https://github.com/mhebtehaj/latex-exact-errors#readme",
+  "bugs": {
+    "url": "https://github.com/mhebtehaj/latex-exact-errors/issues"
+  }
+}

@@ -1,0 +1,15 @@
+test/**
+scripts/**
+node_modules/**
+PLAN.md
+REVIEW.md
+*.vsix
+.gitignore
+.vscode/**
+.github/**
+.vscode-test/**
+examples/**
+docs/**
+CONTRIBUTING.md
+RELEASING.md
+package-lock.json

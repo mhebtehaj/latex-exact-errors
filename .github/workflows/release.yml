@@ -1,0 +1,36 @@
+name: Prepare beta release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    uses: ./.github/workflows/ci.yml
+  release:
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify tag and manifest version match
+        run: node -e 'if (process.env.GITHUB_REF_NAME !== `v${require("./package.json").version}`) process.exit(1)'
+      - uses: actions/download-artifact@v4
+        with:
+          name: latex-exact-errors-vsix
+          path: release-assets
+      - name: Create a draft beta with the tested package
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$RELEASE_TAG" release-assets/*.vsix \
+            --verify-tag --draft --prerelease \
+            --title "LaTeX Exact Errors $RELEASE_TAG (beta)" --generate-notes

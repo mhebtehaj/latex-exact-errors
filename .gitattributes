@@ -1,0 +1,2 @@
+* text=auto eol=lf
+test/fixtures/real-tex/crlf/main.tex -text whitespace=cr-at-eol

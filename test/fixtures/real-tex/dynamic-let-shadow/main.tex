@@ -1,0 +1,9 @@
+\documentclass{article}
+\usepackage{amsmath}
+\errorcontextlines=50
+\newcommand{\myformula}{\alhpa+1}
+\newcommand{\otherformula}{\alhpa+1}
+\expandafter\let\csname myformula\endcsname\otherformula
+\begin{document}
+$\myformula$
+\end{document}

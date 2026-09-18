@@ -1,0 +1,52 @@
+{
+  "cursor": "1.128.0",
+  "extension": "0.4.4",
+  "checks": [
+    "Inline, display, align: exact live warning ranges, Problems, and real hover provider",
+    "UTF-16, correction, undo and redo without save",
+    "Rapid consecutive edits discard superseded snapshots",
+    "Brand-new untitled LaTeX buffer and switching back to the main document",
+    "Adding definition in another unsaved buffer updates the already-open parent; switching files",
+    "Package dependencies, custom environments, declarations, comments, verbatim, intervals",
+    "Unmatched braces, math, environments, left/right underline existing openers",
+    "Single dollar and brace after a formatting macro from another file: exact live warning ranges, cleared on pairing",
+    "12 measured unsaved edits on a 640 KB / 10005-line manuscript fixture",
+    "Edit while worker analysis is in flight cannot revive obsolete diagnostics",
+    "Late stale compiler report cannot restore or replace current live ranges",
+    "Untouched live findings persist through rapid Unicode/multiline edits; fixing one token immediately clears only that token",
+    "Typing in one buffer preserves untouched findings in another unsaved buffer",
+    "Boolean option switches between retained and immediately cleared highlights without reload",
+    "Workspace color changes preserve live findings; 800 ms and 50 ms typing delays apply without reload"
+  ],
+  "samplesMs": [
+    320.64937499999996,
+    309.708834,
+    304.46291699999983,
+    360.6065839999992,
+    378.16100000000006,
+    379.1820829999997,
+    366.87141599999995,
+    372.9885840000006,
+    392.76908300000105,
+    355.69024999999965,
+    366.4764159999995,
+    356.5887910000001,
+    377.4586249999993,
+    386.34212500000103,
+    372.3298329999998
+  ],
+  "medianMs": 366.87141599999995,
+  "maxMs": 392.76908300000105,
+  "largeFixtureCharacters": 640062,
+  "lastTiming": {
+    "afterEditMs": 2.4554580000003625,
+    "analysisMs": 0.8517499999979918,
+    "dispatchMs": 1.1394160000018019,
+    "publishedAt": 22851.511791
+  },
+  "settingsTiming": {
+    "slowMs": 804.7699170000014,
+    "fastMs": 50.97966599999927
+  },
+  "dirty": true
+}

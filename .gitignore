@@ -1,0 +1,8 @@
+node_modules/
+*.vsix
+.test-output/
+.DS_Store
+.vscode-test/
+test/results/project-delimiters-*.json
+PLAN.md
+REVIEW.md

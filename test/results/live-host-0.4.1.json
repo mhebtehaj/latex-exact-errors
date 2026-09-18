@@ -1,0 +1,48 @@
+{
+  "cursor": "1.128.0",
+  "extension": "0.4.1",
+  "checks": [
+    "Inline, display, align: exact live warning ranges, Problems, and real hover provider",
+    "UTF-16, correction, undo and redo without save",
+    "Rapid consecutive edits discard superseded snapshots",
+    "Brand-new untitled LaTeX buffer and closing an unsaved disposable document",
+    "Adding definition in another unsaved buffer updates the already-open parent; switching files",
+    "Package dependencies, custom environments, declarations, comments, verbatim, intervals",
+    "Unmatched braces, math, environments, left/right underline existing openers",
+    "12 measured unsaved edits on a 640 KB / 10005-line manuscript fixture",
+    "Edit while worker analysis is in flight cannot revive obsolete diagnostics",
+    "Late stale compiler report cannot restore or replace current live ranges",
+    "Workspace color changes preserve live findings; 800 ms and 50 ms typing delays apply without reload"
+  ],
+  "samplesMs": [
+    347.9897090000002,
+    309.4794999999999,
+    308.9853329999996,
+    355.97912499999984,
+    364.8127089999998,
+    376.42662500000006,
+    363.9943750000002,
+    349.9183329999996,
+    366.7264159999995,
+    356.4579159999994,
+    355.56516700000066,
+    349.5294159999994,
+    352.96150000000125,
+    347.7716670000009,
+    367.6530839999996
+  ],
+  "medianMs": 355.56516700000066,
+  "maxMs": 376.42662500000006,
+  "largeFixtureCharacters": 640062,
+  "lastTiming": {
+    "afterEditMs": 2.448707999999897,
+    "analysisMs": 0.7055409999993572,
+    "dispatchMs": 0.9760000000005675,
+    "publishedAt": 14846.355458
+  },
+  "settingsTiming": {
+    "slowMs": 802.9557499999992,
+    "fastMs": 51.63083299999926
+  },
+  "dirty": true
+}

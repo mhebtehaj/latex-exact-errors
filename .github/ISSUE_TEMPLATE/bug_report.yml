@@ -1,0 +1,30 @@
+name: Bug report
+description: Report a false warning, missed error, or installation problem.
+body:
+  - type: input
+    id: versions
+    attributes:
+      label: Versions and system
+      description: Extension version, Cursor or VS Code version, operating system, and LaTeX Workshop version if installed.
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Small LaTeX example
+      description: Include relevant macro definitions and included files. Use a small example you can share publicly.
+      render: latex
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: What happened, and what did you expect?
+      description: Include steps, the highlighted token, and the hover or Problems message. Say whether it happens while typing or after compiling.
+    validations:
+      required: true
+  - type: textarea
+    id: settings
+    attributes:
+      label: Relevant settings or logs
+      description: Optional. Include changed LaTeX Exact settings; remove personal paths and private material from logs.

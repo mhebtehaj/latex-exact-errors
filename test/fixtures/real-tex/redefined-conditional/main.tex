@@ -1,0 +1,13 @@
+\documentclass{article}
+\usepackage{amsmath}
+\errorcontextlines=50
+\newcommand{\myformula}{\alhpa+1}
+\begingroup
+\let\iffalse\iftrue
+\iffalse
+\global\def\myformula{\alhpa+1}
+\fi
+\endgroup
+\begin{document}
+$\myformula$
+\end{document}

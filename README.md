@@ -13,7 +13,7 @@ Live findings explicitly say they are not compiler-confirmed. Compiler results r
 
 ## Use
 
-1. Download the `.vsix` file attached to a release in the [GitHub Releases page](https://github.com/mhebtehaj/latex-exact-errors/releases).
+1. Download the `.vsix` file attached to a release in the [GitHub Releases page](https://github.com/mhebtehaj/errata-for-latex/releases).
 2. In Cursor or VS Code, open the Command Palette and choose **Extensions: Install from VSIX**, then select the downloaded file.
 3. Reload the editor window if prompted, and open a trusted LaTeX project. Live checking works immediately; no build setup or save is needed.
 4. For broader package recognition, keep LaTeX Workshop installed. The inspector reads its installed completion metadata without requiring Workshop to build.
@@ -127,7 +127,7 @@ npm run test:workshop-host
 
 The tests exercise direct and delayed errors, macro definitions and arguments, repeated commands, included files, malformed input, dynamic definitions, stale sources, simultaneous builds, report validation, and editor lifecycle. The actual compiler fixtures include cases where a source occurrence looks plausible but must not be selected. The Workshop host test loads the actual installed LaTeX Workshop extension in an isolated profile, records real Problems events, and checks a recipe that continues running after TeX emits an error. The live host suite measures actual Cursor edits through publication in the real diagnostic collection, including the debounce, worker, and editor communication. It uses disposable source files and does not compile. The older basic host test uses a configuration stub and a simulated diagnostic, so it does not establish Workshop's event timing.
 
-For test configuration and contribution instructions, see `CONTRIBUTING.md`; for versioned releases, see `RELEASING.md` and `CHANGELOG.md`. Report reproducible problems in [GitHub Issues](https://github.com/mhebtehaj/latex-exact-errors/issues) using the bug-report form.
+For test configuration and contribution instructions, see `CONTRIBUTING.md`; for versioned releases, see `RELEASING.md` and `CHANGELOG.md`. Report reproducible problems in [GitHub Issues](https://github.com/mhebtehaj/errata-for-latex/issues) using the bug-report form.
 
 New issues are automatically assigned to the maintainer. A scheduled Codex assistant on the maintainer's Mac checks open reports once a day while the Mac and app are running. It may attempt a reproducible bug and open a draft pull request with test results. Public reports and relevant repository code may be processed by AI for this maintenance work; proposed fixes can be incorrect and require human review before merging and releasing. The extension itself still processes documents locally and does not automatically report problems. See [the issue-fix workflow](docs/ISSUE_FIX_ASSISTANT.md) for details.
 

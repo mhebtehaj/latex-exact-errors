@@ -12,7 +12,7 @@ An attempted fix is not a guarantee that a report is valid or solved. If it cann
 
 ## Scheduling and controls
 
-The AI assistant runs through a **local Codex scheduled task**, not a GitHub-hosted coding service. It is scheduled once a day at 9:00 a.m. in the maintainer's local time zone and works only while the Mac and Codex app are running and the GitHub connection is available. Its usual Codex usage limits apply. Check frequency and pausing are managed in Codex scheduled tasks; the task is named **LaTeX issue fix assistant**. Cloning this repository does not create that task for other maintainers.
+The AI assistant runs through a **local Codex scheduled task**, not a GitHub-hosted coding service. It is scheduled once a day at 9:00 a.m. in the maintainer's local time zone and works only while the Mac and Codex app are running and the GitHub connection is available. Its usual Codex usage limits apply. Check frequency and pausing are managed in Codex scheduled tasks; the task is named **Errata issue fix assistant**. Cloning this repository does not create that task for other maintainers.
 
 Issues with the `no-ai` label are excluded. If a reporter asks not to use AI, honor that request and leave the report for manual review. Closed issues and reports that already have an open fix proposal are skipped. An unchanged blocked report is not retried on each check; a material new reproduction or an explicit retry request is needed.
 

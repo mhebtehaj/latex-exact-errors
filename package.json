@@ -154,10 +154,10 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/mhebtehaj/latex-exact-errors.git"
+    "url": "https://github.com/mhebtehaj/errata-for-latex.git"
   },
-  "homepage": "https://github.com/mhebtehaj/latex-exact-errors#readme",
+  "homepage": "https://github.com/mhebtehaj/errata-for-latex#readme",
   "bugs": {
-    "url": "https://github.com/mhebtehaj/latex-exact-errors/issues"
+    "url": "https://github.com/mhebtehaj/errata-for-latex/issues"
   }
 }

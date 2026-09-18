@@ -4,7 +4,7 @@
 
 1. A user submits a public GitHub issue, ideally through the bug-report form. The extension does not upload manuscripts, logs, or bug reports automatically.
 2. The `Route new issues` GitHub workflow assigns opened or reopened issues to `mhebtehaj`. GitHub delivers assignment notifications according to the maintainer's notification settings.
-3. An hourly Codex task on the maintainer's Mac checks open reports. It attempts at most one new or materially updated, reproducible bug per run in a separate checkout. Feature requests, missing reproductions, and unsafe or ambiguous reports are brought to the maintainer instead.
+3. A daily Codex task on the maintainer's Mac checks open reports. It attempts at most one new or materially updated, reproducible bug per run in a separate checkout. Feature requests, missing reproductions, and unsafe or ambiguous reports are brought to the maintainer instead.
 4. For a reproducible bug, the assistant adds a regression test, proposes a focused fix, and runs the relevant checks. It opens a **draft** pull request describing the cause, change, tests actually run, and remaining uncertainty. An existing proposal is not duplicated.
 5. The maintainer reviews the change and the GitHub checks, then decides whether to merge. Version changes, tags, and publication require a separate maintainer decision. Neither the issue assistant nor the routing workflow merges or releases changes.
 
@@ -12,9 +12,9 @@ An attempted fix is not a guarantee that a report is valid or solved. If it cann
 
 ## Scheduling and controls
 
-The AI assistant runs through a **local Codex scheduled task**, not a GitHub-hosted coding service. It works only while the maintainer's Mac and Codex app are running and the GitHub connection is available. Its usual Codex usage limits apply. Check frequency and pausing are managed in Codex scheduled tasks; the task is named **LaTeX issue fix assistant**. Cloning this repository does not create that task for other maintainers.
+The AI assistant runs through a **local Codex scheduled task**, not a GitHub-hosted coding service. It is scheduled once a day at 9:00 a.m. in the maintainer's local time zone and works only while the Mac and Codex app are running and the GitHub connection is available. Its usual Codex usage limits apply. Check frequency and pausing are managed in Codex scheduled tasks; the task is named **LaTeX issue fix assistant**. Cloning this repository does not create that task for other maintainers.
 
-Issues with the `no-ai` label are excluded. If a reporter asks not to use AI, honor that request and leave the report for manual review. Closed issues and reports that already have an open fix proposal are skipped. An unchanged blocked report is not retried hourly; a material new reproduction or an explicit retry request is needed.
+Issues with the `no-ai` label are excluded. If a reporter asks not to use AI, honor that request and leave the report for manual review. Closed issues and reports that already have an open fix proposal are skipped. An unchanged blocked report is not retried on each check; a material new reproduction or an explicit retry request is needed.
 
 Local attempt state lives in `.issue-assistant/`, which is excluded from Git and extension packages. Store only issue identifiers, revision fingerprints, outcome summaries, and proposal links there; do not store credentials or manuscript contents.
 

@@ -151,7 +151,7 @@ async function run() {
     passed: true, application: vscode.env.appName, vscodeVersion: vscode.version, checks,
     compilerDisplayDelayMs, problemsDisplayDelayMs, liveDisplayDelayMs, initialExact: first, finalState: api.getState()
   }, null, 2));
-  console.log(`LaTeX Exact: ${checks.length} real Cursor extension-host checks passed.`);
+  console.log(`LaTeX Exact: ${checks.length} real editor extension-host checks passed.`);
 }
 
 module.exports = { run };

@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "application": "Visual Studio Code",
+  "vscodeVersion": "1.138.0",
+  "checks": [
+    "Failed pdfLaTeX align* build yields the exact six-character command in a visible editor and a real hover.",
+    "Excluded-folder report appeared automatically 71 ms after completion.",
+    "Exact highlight was visible 62 ms after publishing the Problems entry.",
+    "An unsaved fix immediately clears the result; the old build cannot revive it.",
+    "Saving and rebuilding the corrected document preserves PDF output and publishes no errors.",
+    "Unsaved alignment warning and hover appeared in 324 ms and cleared after the fix without compiling.",
+    "Enable/disable commands round-trip real folder settings and preserve the original tool environment."
+  ],
+  "compilerDisplayDelayMs": 71,
+  "problemsDisplayDelayMs": 62,
+  "liveDisplayDelayMs": 324,
+  "initialExact": {
+    "buildId": "94a34e7d-8633-4d85-a1a1-3b3f4c3ee7fd",
+    "id": "45c32bbc7e5031b1",
+    "command": "\\alhpa",
+    "range": {
+      "file": "/private/tmp/lex-host-5r5997/project/main.tex",
+      "start": 105,
+      "end": 111
+    }
+  },
+  "finalState": {
+    "status": "Configuration changed; refreshing build reports.",
+    "generation": 34,
+    "exact": [],
+    "structural": [],
+    "reports": [
+      {
+        "file": "/private/tmp/lex-host-5r5997/project/.latex-build/.latex-exact/report.json",
+        "buildId": "acfb24b5-c233-4dea-92b6-11e08d4cd81e",
+        "phase": "complete"
+      }
+    ]
+  }
+}

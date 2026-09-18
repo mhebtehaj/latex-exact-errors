@@ -216,7 +216,7 @@ async function run() {
   }
   checks.push('Workspace color changes preserve live findings; 800 ms and 50 ms typing delays apply without reload');
   const sorted = [...latency].sort((a, b) => a - b);
-  const result = { cursor: vscode.version, extension: extension.packageJSON.version, checks, samplesMs: latency,
+  const result = { editor: vscode.env.appName, editorApiVersion: vscode.version, extension: extension.packageJSON.version, checks, samplesMs: latency,
     medianMs: sorted[Math.floor(sorted.length / 2)], maxMs: sorted.at(-1),
     largeFixtureCharacters: large.length, lastTiming: state().timing, settingsTiming, dirty: doc.isDirty };
   await fs.writeFile(path.join(root, 'result.json'), JSON.stringify(result, null, 2));

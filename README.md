@@ -123,7 +123,7 @@ The tests exercise direct and delayed errors, macro definitions and arguments, r
 
 For test configuration and contribution instructions, see `CONTRIBUTING.md`; for versioned releases, see `RELEASING.md` and `CHANGELOG.md`. Report reproducible problems in [GitHub Issues](https://github.com/mhebtehaj/latex-exact-errors/issues) using the bug-report form.
 
-The beta has been tested locally in Cursor on macOS. Other editor/platform combinations need verification; the presence of a CI workflow alone does not establish support.
+The checker has a history of local Cursor tests on macOS. The 0.5.0 preparation also passed live and compiler host checks in VS Code on macOS; the current Cursor build closed its disposable test windows before completion. See `VALIDATION.md` for details. Other platform results depend on completed CI runs, not merely the presence of a workflow.
 
 ## Why a companion extension?
 

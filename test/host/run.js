@@ -1,6 +1,6 @@
 'use strict';
 
-// Runs the real extension in an isolated Cursor profile. Never touches the user's open workspace.
+// Runs the real extension in an isolated editor profile. Never touches the user's open workspace.
 const fs = require('node:fs/promises');
 const os = require('node:os');
 const path = require('node:path');
@@ -51,7 +51,7 @@ async function main() {
         } } }
       }, null, 2))
     ]);
-    console.log(`Isolated Cursor host fixture: ${temporaryRoot}`);
+    console.log(`Isolated Editor host fixture: ${temporaryRoot}`);
     await runTests({
       ...editor,
       extensionDevelopmentPath: [extensionRoot, stub], extensionTestsPath: path.join(__dirname, 'suite.js'),
@@ -68,8 +68,8 @@ async function main() {
     passed = true;
   } finally {
     if (passed && process.env.LATEX_EXACT_HOST_KEEP !== '1') await fs.rm(temporaryRoot, { recursive: true, force: true });
-    else console.log(`Cursor host logs and fixtures retained at: ${temporaryRoot}`);
+    else console.log(`Editor host logs and fixtures retained at: ${temporaryRoot}`);
   }
 }
 
-main().catch(error => { console.error('Cursor extension-host tests failed:', error); process.exitCode = 1; });
+main().catch(error => { console.error('Editor extension-host tests failed:', error); process.exitCode = 1; });

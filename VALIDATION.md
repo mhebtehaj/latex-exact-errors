@@ -73,3 +73,16 @@ The installed Workshop metadata had no `thmtools` command record, causing valid 
 - Comparing the supplied settings source using installed 0.4.3 versus the fix reduced findings on `\declaretheorem` from 12 to zero. The settings file was only read.
 - The isolated Cursor host passed with a `thmtools` declaration fixture added to its package checks. Raw evidence is in `test/results/live-host-0.4.4.json`. An earlier host attempt closed without a result; the retry passed.
 - A separate disposable TeX build confirmed that `style=theorem` produces the reported `amsthm` warning and `style=plain` clears it. This compiler warning is independent of live command recognition; the user's journal was not edited.
+
+## 0.5.0 public beta preparation
+
+Tested on 2026-09-18. The runtime checking behavior is unchanged from 0.4.4; release preparation adds standalone development dependencies, a lockfile, portable editor test configuration, documentation and GitHub workflows. The public extension identity is `mhebtehaj.latex-exact-errors`.
+
+- All 226 unit and real-TeX tests passed, with no failures or skips. Syntax checks and VSIX packaging passed.
+- The public VSIX installed successfully in a disposable VS Code profile and its publisher/version were verified.
+- A clean export installed its development tools with `npm ci --ignore-scripts` using the lockfile and successfully ran syntax checks and packaging, with no sibling-project dependency.
+- Live tests passed in isolated VS Code 1.138.0 on macOS, including exact diagnostic and hover ranges, unsaved included macros, undo/redo, retained highlights, settings changes, and stale-result rejection. Evidence is in `test/results/vscode-live-host-0.5.0.json`. This verifies editor APIs and decoration ranges, not screenshot pixels.
+- The compiler host suite also passed in isolated VS Code: real pdfLaTeX output, exact mapping, configuration setup/restore, edits and report invalidation. Evidence is in `test/results/vscode-compiler-host-0.5.0.json`.
+- The editor testing dependency was updated to support the current macOS VS Code executable layout. Undo/redo tests now focus the source editor and await its document-change event before checking results.
+- Three fresh-profile Cursor attempts closed the renderer before a complete test result. These are incomplete validation runs, not passing tests. Previous Cursor evidence remains under the earlier version sections. Default contributor tests now download isolated VS Code; testing Cursor requires selecting its executable explicitly.
+- GitHub workflow execution is tracked in the repository Actions tab; the local checks above do not substitute for a completed Linux CI run.

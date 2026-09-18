@@ -6,8 +6,8 @@ function createLiveController(vscode, dependencies = {}) {
   const subscriptions = [], entries = new Map(), requests = new Map();
   let generation = 0, serial = 0, timer, disposed = false, worker, candidates = [], discoverPromise;
   let changedAt = performance.now(), lastError = null;
-  const output = vscode.window.createOutputChannel('LaTeX Live');
-  const diagnostics = vscode.languages.createDiagnosticCollection('LaTeX Live');
+  const output = vscode.window.createOutputChannel('Errata Live');
+  const diagnostics = vscode.languages.createDiagnosticCollection('Errata Live');
   function createHighlight() {
     const color = vscode.workspace.getConfiguration('latexExact').get('liveHighlightColor', '#ffd54f55');
     return vscode.window.createTextEditorDecorationType({
@@ -23,8 +23,8 @@ function createLiveController(vscode, dependencies = {}) {
   const md = (finding, pending = false) => {
     const value = new vscode.MarkdownString(); value.isTrusted = false; value.supportHtml = false;
     value.appendText(finding.message + (pending
-      ? '\n\nLaTeX Live — rechecking after edits. This finding is from the last completed check, not compiler-confirmed.'
-      : '\n\nLaTeX Live — current buffer analysis, not compiler-confirmed.')); return value;
+      ? '\n\nErrata Live — rechecking after edits. This finding is from the last completed check, not compiler-confirmed.'
+      : '\n\nErrata Live — current buffer analysis, not compiler-confirmed.')); return value;
   };
   function render() {
     for (const editor of vscode.window.visibleTextEditors) {
@@ -39,7 +39,7 @@ function createLiveController(vscode, dependencies = {}) {
       const diag = new vscode.Diagnostic(f.range, f.message + (entry.pending ? '\nRechecking after edits.' : ''),
         // Reserve red error squiggles for compiler-confirmed diagnostics.
         f.severity === 'information' ? vscode.DiagnosticSeverity.Information : vscode.DiagnosticSeverity.Warning);
-      diag.source = 'LaTeX Live'; diag.code = f.code;
+      diag.source = 'Errata Live'; diag.code = f.code;
       if (f.related?.length) diag.relatedInformation = f.related.map(r => {
         const target = vscode.workspace.textDocuments.find(d => key(d) === r.file);
         return target ? new vscode.DiagnosticRelatedInformation(new vscode.Location(target.uri, new vscode.Range(target.positionAt(r.start), target.positionAt(r.end))), r.message) : null;

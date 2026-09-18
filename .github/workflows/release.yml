@@ -33,4 +33,4 @@ jobs:
         run: |
           gh release create "$RELEASE_TAG" release-assets/*.vsix \
             --verify-tag --draft --prerelease \
-            --title "LaTeX Exact Errors $RELEASE_TAG (beta)" --generate-notes
+            --title "Errata for LaTeX $RELEASE_TAG (beta)" --generate-notes

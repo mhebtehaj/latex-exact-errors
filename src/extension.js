@@ -85,12 +85,12 @@ function createController(vscode, dependencies = {}) {
   let pollInFlight = false;
   let sourceCheckInFlight = false;
   let debounce;
-  const waiting = 'Waiting for a wrapped LaTeX build. Run LaTeX Exact: Enable for This Project to configure the build.';
+  const waiting = 'Waiting for a wrapped LaTeX build. Run Errata: Enable for This Project to configure the build.';
   let status = waiting;
   let lastDiscovery = -Infinity;
   let refreshesInFlight = 0;
   let nextIndex = -1;
-  const output = vscode.window.createOutputChannel('LaTeX Exact');
+  const output = vscode.window.createOutputChannel('Errata');
   const decoration = vscode.window.createTextEditorDecorationType({
     textDecoration: 'underline wavy #cc2020',
     backgroundColor: vscode.workspace.getConfiguration('latexExact').get('background', false) ? '#fff0a833' : undefined,
@@ -397,7 +397,7 @@ function createController(vscode, dependencies = {}) {
   async function processRefresh(forceDiscovery = false) {
     if (disposed) return;
     const ticket = ++generation;
-    if (!trusted()) { clear('LaTeX Exact requires a trusted workspace.'); return; }
+    if (!trusted()) { clear('Errata requires a trusted workspace.'); return; }
     await refreshAliases();
     if (ticket !== generation || disposed) return;
     let paths;
@@ -429,7 +429,7 @@ function createController(vscode, dependencies = {}) {
     // A corrupt replacement cannot leave previous decorations visible or revive an older report.
     if (invalid) {
       for (const { report } of candidates.values()) invalidBuilds.add(buildKey(report));
-      clear('A build report is invalid. See LaTeX Exact: Show Build Details.'); return;
+      clear('A build report is invalid. See Errata: Show Build Details.'); return;
     }
     const activeBuilds = new Set(active.map(entry => buildKey(entry.report)));
     const unchangedSelection = candidates.size && [...candidates.values()].every(({ report }) =>
@@ -646,7 +646,7 @@ function createController(vscode, dependencies = {}) {
       if (debounce) clearTimeout(debounce);
       for (const pending of lintTimers.values()) clearTimeout(pending);
       lintTimers.clear(); structural.clear(); renderStructure();
-      clear('LaTeX Exact is inactive.');
+      clear('Errata is inactive.');
       for (const disposable of subscriptions.reverse()) disposable.dispose();
     }
   };

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.1 — Errata for LaTeX
+
+- Rename the extension to **Errata for LaTeX**, a live, macro-aware LaTeX inspector.
+- Use **Errata** in commands and messages, and **Errata Live** for live findings and output.
+- Preserve the extension identity, `latexExact.*` settings, command identifiers, and build backups so existing installations can upgrade without reconfiguration.
+- Document AI-assisted issue maintenance and the daily review schedule. AI proposals still require human review before merging or releasing.
+- Inspection behavior is unchanged from 0.5.0.
+
 ## 0.5.0 — Public beta
 
 - Standalone build and test dependencies, with a lockfile for reproducible installs.

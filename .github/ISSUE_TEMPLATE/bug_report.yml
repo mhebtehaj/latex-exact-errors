@@ -33,4 +33,4 @@ body:
     id: settings
     attributes:
       label: Relevant settings or logs
-      description: Optional. Include changed LaTeX Exact settings; remove personal paths and private material from logs.
+      description: Optional. Include changed Errata settings; remove personal paths and private material from logs.

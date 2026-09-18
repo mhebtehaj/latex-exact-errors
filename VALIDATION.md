@@ -86,3 +86,12 @@ Tested on 2026-09-18. The runtime checking behavior is unchanged from 0.4.4; rel
 - The editor testing dependency was updated to support the current macOS VS Code executable layout. Undo/redo tests now focus the source editor and await its document-change event before checking results.
 - Three fresh-profile Cursor attempts closed the renderer before a complete test result. These are incomplete validation runs, not passing tests. Previous Cursor evidence remains under the earlier version sections. Default contributor tests now download isolated VS Code; testing Cursor requires selecting its executable explicitly.
 - GitHub workflow execution is tracked in the repository Actions tab; the local checks above do not substitute for a completed Linux CI run.
+
+## 0.5.1 Errata branding
+
+Tested on 2026-09-18. This release changes visible names and documentation to **Errata for LaTeX**, with the description **A live, macro-aware LaTeX inspector.** Runtime changes are limited to labels and messages.
+
+- All 226 unit and real-TeX tests passed with no failures or skips, after a fresh lockfile install. Syntax and packaging checks passed.
+- Both isolated VS Code 1.138.0 host suites passed on macOS: 15 live-check groups using the renamed `Errata Live` source, and seven compiler/setup/restore checks. The live timing median was 374.6 ms across 15 samples; this is an observed timing, not a guarantee.
+- The packaged manifest has the new display name and description. Extension identity, command identifiers, and all configuration properties were compared with 0.5.0 and are unchanged. Packaged runtime files were compared byte-for-byte with the source.
+- Cursor-specific and visual-pixel limitations recorded for 0.5.0 still apply; the branding changes do not establish a new Cursor host test result.

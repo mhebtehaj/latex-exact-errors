@@ -19,7 +19,7 @@ async function run() {
   const doc = await vscode.workspace.openTextDocument(uri);
   let editor = await vscode.window.showTextDocument(doc, { preview: false });
   const state = () => api.getLiveState().documents.find(d => d.file === doc.uri.fsPath);
-  const liveProblems = () => vscode.languages.getDiagnostics(uri).filter(d => d.source === 'LaTeX Live');
+  const liveProblems = () => vscode.languages.getDiagnostics(uri).filter(d => d.source === 'Errata Live');
   async function settled() {
     await until(() => state()?.version === doc.version && !state().pending, 'Live checker did not settle: ' + JSON.stringify(api.getLiveState()));
     await until(() => liveProblems().length === state().findings.length, 'Problems panel did not receive all findings');
@@ -63,8 +63,8 @@ async function run() {
   checks.push('Rapid consecutive edits discard superseded snapshots');
   const untitled = await vscode.workspace.openTextDocument({ language: 'latex', content: '$\\alhpa$' });
   await vscode.window.showTextDocument(untitled);
-  await until(() => vscode.languages.getDiagnostics(untitled.uri).some(d => d.source === 'LaTeX Live'), 'Untitled buffer was not checked');
-  assert.equal(untitled.getText(vscode.languages.getDiagnostics(untitled.uri).find(d => d.source === 'LaTeX Live').range), R`\alhpa`);
+  await until(() => vscode.languages.getDiagnostics(untitled.uri).some(d => d.source === 'Errata Live'), 'Untitled buffer was not checked');
+  assert.equal(untitled.getText(vscode.languages.getDiagnostics(untitled.uri).find(d => d.source === 'Errata Live').range), R`\alhpa`);
   // Keep dirty untitled fixtures open until the isolated host exits. Cursor's
   // focus-based revert-and-close command can close the test window mid-run.
   editor = await vscode.window.showTextDocument(doc, { preview: false });

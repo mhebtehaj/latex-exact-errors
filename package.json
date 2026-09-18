@@ -1,8 +1,8 @@
 {
   "name": "latex-exact-errors",
-  "displayName": "LaTeX Exact Errors",
-  "description": "Macro-aware live LaTeX diagnostics and precise compiler-confirmed error highlights.",
-  "version": "0.5.0",
+  "displayName": "Errata for LaTeX",
+  "description": "A live, macro-aware LaTeX inspector.",
+  "version": "0.5.1",
   "publisher": "mhebtehaj",
   "license": "MIT",
   "engines": {
@@ -13,6 +13,8 @@
     "Programming Languages"
   ],
   "keywords": [
+    "errata",
+    "inspector",
     "latex",
     "diagnostics",
     "errors"
@@ -38,27 +40,27 @@
     "commands": [
       {
         "command": "latexExact.nextError",
-        "title": "LaTeX Exact: Next Exact Error"
+        "title": "Errata: Next Exact Error"
       },
       {
         "command": "latexExact.showDetails",
-        "title": "LaTeX Exact: Show Build Details"
+        "title": "Errata: Show Build Details"
       },
       {
         "command": "latexExact.refresh",
-        "title": "LaTeX Exact: Refresh Build Report"
+        "title": "Errata: Refresh Build Report"
       },
       {
         "command": "latexExact.enableProject",
-        "title": "LaTeX Exact: Enable for This Project"
+        "title": "Errata: Enable for This Project"
       },
       {
         "command": "latexExact.disableProject",
-        "title": "LaTeX Exact: Restore Original Build Tools"
+        "title": "Errata: Restore Original Build Tools"
       }
     ],
     "configuration": {
-      "title": "LaTeX Exact Errors",
+      "title": "Errata for LaTeX",
       "properties": {
         "latexExact.reportPaths": {
           "type": "array",

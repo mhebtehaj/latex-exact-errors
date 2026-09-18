@@ -1,10 +1,12 @@
-# LaTeX Exact Errors
+# Errata for LaTeX
 
-**AI-generated software:** This extension was developed with AI-generated code under human direction. It may contain bugs, flag valid LaTeX, or miss errors. Treat its feedback as a guide and verify suspected problems with your LaTeX compiler. The checker runs locally; it does not use AI at runtime or send your documents to an AI service.
+*A live, macro-aware LaTeX inspector.*
 
-**Public beta for Cursor and VS Code.** Catch likely LaTeX mistakes while typing, including commands defined in other project files. The checker provides two independent sources of feedback:
+**AI-generated software:** This extension was developed with AI-generated code under human direction. It may contain bugs, flag valid LaTeX, or miss errors. Treat its feedback as a guide and verify suspected problems with your LaTeX compiler. The inspector runs locally; it does not use AI at runtime or send your documents to an AI service.
 
-- **LaTeX Live** checks unsaved buffers after a 300 ms typing pause. A likely typo such as `\alhpa` gets a yellow background (configurable) on that command alone; the hover suggests `\alpha`. Its precise range also appears in Problems. Live findings appear as warnings or information, so red error squiggles remain reserved for compiler errors. Cursor may also draw its native warning/information underline.
+**Public beta for Cursor and VS Code.** Catch likely LaTeX mistakes while typing, including commands defined in other project files. The inspector provides two independent sources of feedback:
+
+- **Errata Live** checks unsaved buffers after a 300 ms typing pause. A likely typo such as `\alhpa` gets a yellow background (configurable) on that command alone; the hover suggests `\alpha`. Its precise range also appears in Problems. Live findings appear as warnings or information, so red error squiggles remain reserved for compiler errors. Cursor may also draw its native warning/information underline.
 - **Compiler-confirmed red squiggles** preserve the original source-validated compiler mapping, including errors reported at the end of `align`. They appear during compilation as complete error evidence arrives.
 
 Live findings explicitly say they are not compiler-confirmed. Compiler results remain separate and cannot restore locations for edited source.
@@ -14,18 +16,20 @@ Live findings explicitly say they are not compiler-confirmed. Compiler results r
 1. Download the `.vsix` file attached to a release in the [GitHub Releases page](https://github.com/mhebtehaj/latex-exact-errors/releases).
 2. In Cursor or VS Code, open the Command Palette and choose **Extensions: Install from VSIX**, then select the downloaded file.
 3. Reload the editor window if prompted, and open a trusted LaTeX project. Live checking works immediately; no build setup or save is needed.
-4. For broader package recognition, keep LaTeX Workshop installed. The checker reads its installed completion metadata without requiring Workshop to build.
-5. To enable the separate compiler mapping, install Node.js 20 or newer and run **LaTeX Exact: Enable for This Project** once. Existing managed compiler settings remain supported.
+4. For broader package recognition, keep LaTeX Workshop installed. The inspector reads its installed completion metadata without requiring Workshop to build.
+5. To enable the separate compiler mapping, install Node.js 20 or newer and run **Errata: Enable for This Project** once. Existing managed compiler settings remain supported.
 
 **Live checking needs no TeX installation or separate Node.js setup.** Compiler-confirmed feedback additionally needs a TeX distribution, Node.js, and a LaTeX Workshop build recipe.
 
 If you used the earlier local prototype (`local.latex-exact-errors`), uninstall that copy before installing this public beta to avoid duplicate diagnostics.
 
-To update a GitHub-installed copy, download the newer VSIX and install it the same way. To try the checker, open `examples/quickstart` from the source repository; it includes a deliberate typo and a macro defined in another file.
+To update a GitHub-installed copy, download the newer VSIX and install it the same way. To try the inspector, open `examples/quickstart` from the source repository; it includes a deliberate typo and a macro defined in another file.
 
-Setup wraps supported LaTeX Workshop compiler tools, preserves their arguments and environment, and enables TeX's file recorder. The original build remains responsible for the PDF. Extension upgrades update managed wrapper paths while retaining the original restore backup; later user edits to build settings are left intact. Failed builds still produce a report. Live diagnostics appear under **LaTeX Live** in Problems. Compiler diagnostics remain with the existing compiler integration; its precise decorations retain their compiler-confirmed hover.
+Previously named **LaTeX Exact Errors**. Existing settings and keyboard shortcuts continue to work: the extension identifier and `latexExact.*` settings and command identifiers are preserved. The visible command prefix is now **Errata**, and live findings appear as **Errata Live**.
 
-**LaTeX Exact: Next Exact Error** jumps between confirmed locations. **LaTeX Exact: Show Build Details** explains uncertain locations, stale results, and build problems. **LaTeX Exact: Restore Original Build Tools** restores the configuration saved by setup, provided you have not subsequently edited those tools.
+Setup wraps supported LaTeX Workshop compiler tools, preserves their arguments and environment, and enables TeX's file recorder. The original build remains responsible for the PDF. Extension upgrades update managed wrapper paths while retaining the original restore backup; later user edits to build settings are left intact. Failed builds still produce a report. Live diagnostics appear under **Errata Live** in Problems. Compiler diagnostics remain with the existing compiler integration; its precise decorations retain their compiler-confirmed hover.
+
+**Errata: Next Exact Error** jumps between confirmed locations. **Errata: Show Build Details** explains uncertain locations, stale results, and build problems. **Errata: Restore Original Build Tools** restores the configuration saved by setup, provided you have not subsequently edited those tools.
 
 Live checks run after a short typing pause (300 ms by default) on the current editor buffer, including unsaved changes. Compiler-confirmed command errors still require compilation; editing clears those old confirmations. The wrapper checks compiler output every 80 ms and publishes completed error contexts while the recipe is running. It waits for the full context and a fresh recorder identifying the source files, rather than waiting for recipe termination. Compiler buffering and source verification can still add latency. The final report replaces the progressive result, and source changes or new uncaptured dependencies withdraw it.
 
@@ -52,7 +56,7 @@ An exact location requires one justified match. If macro redefinitions, dynamic 
 
 ## Settings
 
-Open Cursor Settings and search for **LaTeX Exact**. **Lint Delay** controls the typing pause (50–2000 ms), and **Live Highlight Color** controls the live background. For example, use `#ff555555` for translucent red or `#ffd54f55` for the default yellow. Both settings take effect without reloading. Set them under User for all projects or Workspace for this project.
+Open Cursor Settings and search for **Errata**. **Lint Delay** controls the typing pause (50–2000 ms), and **Live Highlight Color** controls the live background. For example, use `#ff555555` for translucent red or `#ffd54f55` for the default yellow. Both settings take effect without reloading. Set them under User for all projects or Workspace for this project.
 
 | Setting | Default | Purpose |
 | --- | --- | --- |
@@ -72,7 +76,7 @@ Reports are normally stored at `<output-directory>/.latex-exact/report.json`. Di
 
 ## Live analysis limits
 
-The checker does not execute TeX. Generated command names, arbitrary expansion, conditional package options, catcode changes, and unfamiliar declaration mechanisms can remain uncertain. Missing metadata is disclosed, and generated names can be added to `latexExact.additionalCommands`. Macro argument specifications are indexed; general argument expansion and argument-dependent scope are not interpreted. Simple math/text wrappers and custom environment wrappers are recognized conservatively.
+The inspector does not execute TeX. Generated command names, arbitrary expansion, conditional package options, catcode changes, and unfamiliar declaration mechanisms can remain uncertain. Missing metadata is disclosed, and generated names can be added to `latexExact.additionalCommands`. Macro argument specifications are indexed; general argument expansion and argument-dependent scope are not interpreted. Simple math/text wrappers and custom environment wrappers are recognized conservatively.
 
 Roots are discovered from `\documentclass` and `% !TEX root = ...`; when a file belongs to several roots, the first discovered root is used unless a magic root selects one. Literal includes are resolved relative to the root, then the including file, within the workspace. `\includeonly`, arbitrary TEXINPUTS search paths, external symlink targets, and computed filenames are not evaluated. An edit rechecks open documents using cached parses and metadata, so dependent buffers update; very large multi-root workspaces can take longer than the measured fixture.
 
@@ -127,8 +131,8 @@ For test configuration and contribution instructions, see `CONTRIBUTING.md`; for
 
 New issues are automatically assigned to the maintainer. A scheduled Codex assistant on the maintainer's Mac checks open reports once a day while the Mac and app are running. It may attempt a reproducible bug and open a draft pull request with test results. Public reports and relevant repository code may be processed by AI for this maintenance work; proposed fixes can be incorrect and require human review before merging and releasing. The extension itself still processes documents locally and does not automatically report problems. See [the issue-fix workflow](docs/ISSUE_FIX_ASSISTANT.md) for details.
 
-The checker has a history of local Cursor tests on macOS. The 0.5.0 preparation also passed live and compiler host checks in VS Code on macOS; the current Cursor build closed its disposable test windows before completion. See `VALIDATION.md` for details. Other platform results depend on completed CI runs, not merely the presence of a workflow.
+The inspector has a history of local Cursor tests on macOS. The 0.5.0 preparation also passed live and compiler host checks in VS Code on macOS; the current Cursor build closed its disposable test windows before completion. See `VALIDATION.md` for details. Other platform results depend on completed CI runs, not merely the presence of a workflow.
 
-## Why a companion extension?
+## Why another LaTeX extension?
 
-[Error Lens](https://github.com/usernamehw/vscode-error-lens) can color an existing diagnostic range. [LaTeX Workshop's range finder](https://github.com/James-Yu/LaTeX-Workshop/blob/master/src/parse/parser/parserutils.ts) and [TexLab's build-log resolver](https://github.com/latex-lsp/texlab/blob/master/crates/diagnostics/src/build_log.rs) use the reported line, which may be a closing environment or macro call. This companion retains the full TeX expansion context and resolves earlier source occurrences conservatively.
+[Error Lens](https://github.com/usernamehw/vscode-error-lens) can color an existing diagnostic range. [LaTeX Workshop's range finder](https://github.com/James-Yu/LaTeX-Workshop/blob/master/src/parse/parser/parserutils.ts) and [TexLab's build-log resolver](https://github.com/latex-lsp/texlab/blob/master/crates/diagnostics/src/build_log.rs) use the reported line, which may be a closing environment or macro call. Errata retains the full TeX expansion context and resolves earlier source occurrences conservatively.

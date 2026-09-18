@@ -67,7 +67,7 @@ async function migrateConfiguredWorkspaces(vscode, context) {
 
 function registerConfigurationCommands(vscode, context) {
   const migration = migrateConfiguredWorkspaces(vscode, context).catch(error => {
-    vscode.window.showWarningMessage(`LaTeX Exact could not update its build connection: ${error.message}`);
+    vscode.window.showWarningMessage(`Errata could not update its build connection: ${error.message}`);
   });
   const chooseFolder = async () => {
     const folders = vscode.workspace.workspaceFolders || [];
@@ -85,16 +85,16 @@ function registerConfigurationCommands(vscode, context) {
     const wrapper = path.join(context.extensionPath, 'bin', 'build.js');
     const node = pickNode(vscode.workspace.getConfiguration('latexExact', folder.uri).get('nodePath', 'node'));
     const result = wrapTools(current, wrapper, node);
-    if (!result.count) { vscode.window.showInformationMessage('No unwrapped supported LaTeX compiler tools were found. See LaTeX Exact setup instructions.'); return; }
+    if (!result.count) { vscode.window.showInformationMessage('No unwrapped supported LaTeX compiler tools were found. See Errata setup instructions.'); return; }
     const key = `latexExact.backup:${folder.uri.toString()}`;
     const prior = context.workspaceState.get(key);
-    if (prior) { vscode.window.showWarningMessage('LaTeX Exact has an existing configuration backup. Disable it before applying another configuration.'); return; }
+    if (prior) { vscode.window.showWarningMessage('Errata has an existing configuration backup. Disable it before applying another configuration.'); return; }
     const before = config.inspect('latex.tools')?.workspaceFolderValue;
     const backup = { hadFolderValue: before !== undefined, before: before ?? null, applied: result.tools, createdAt: new Date().toISOString(), id: crypto.randomUUID() };
     await context.workspaceState.update(key, backup);
     try {
       await config.update('latex.tools', result.tools, vscode.ConfigurationTarget.WorkspaceFolder);
-      vscode.window.showInformationMessage('LaTeX Exact enabled. Build your document normally to highlight compiler-confirmed errors.');
+      vscode.window.showInformationMessage('Errata enabled. Build your document normally to highlight compiler-confirmed errors.');
     } catch (error) { await context.workspaceState.update(key, undefined); throw error; }
   }));
   context.subscriptions.push(vscode.commands.registerCommand('latexExact.disableProject', async () => {
@@ -102,10 +102,10 @@ function registerConfigurationCommands(vscode, context) {
     const folder = await chooseFolder(); if (!folder) return;
     const key = `latexExact.backup:${folder.uri.toString()}`;
     const backup = context.workspaceState.get(key);
-    if (!backup) { vscode.window.showInformationMessage('No LaTeX Exact configuration backup exists for this project.'); return; }
+    if (!backup) { vscode.window.showInformationMessage('No Errata configuration backup exists for this project.'); return; }
     const config = vscode.workspace.getConfiguration('latex-workshop', folder.uri);
     const current = config.inspect('latex.tools')?.workspaceFolderValue;
-    if (JSON.stringify(current) !== JSON.stringify(backup.applied)) { vscode.window.showWarningMessage('Build tools changed after setup. LaTeX Exact will not overwrite those changes; restore your tool configuration manually.'); return; }
+    if (JSON.stringify(current) !== JSON.stringify(backup.applied)) { vscode.window.showWarningMessage('Build tools changed after setup. Errata will not overwrite those changes; restore your tool configuration manually.'); return; }
     await config.update('latex.tools', backup.hadFolderValue ? backup.before : undefined, vscode.ConfigurationTarget.WorkspaceFolder);
     await context.workspaceState.update(key, undefined);
     vscode.window.showInformationMessage('Original LaTeX build tools restored.');

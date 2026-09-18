@@ -385,7 +385,7 @@ if (require.main === module) {
   (async () => {
     const result = await runBuild(parseArgs(process.argv.slice(2)));
     process.exitCode = result.exitCode;
-  })().catch((error) => { console.error(`[LaTeX Exact] ${error.message}`); process.exitCode = 1; });
+  })().catch((error) => { console.error(`[Errata] ${error.message}`); process.exitCode = 1; });
 }
 
 module.exports = { runBuild, parseArgs, readSnapshot, collectSources, atomicJSON, withReportLock, flsInputs, LIMITS };

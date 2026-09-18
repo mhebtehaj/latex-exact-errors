@@ -10,7 +10,7 @@ Create a standalone public repository for this extension. Do not publish its par
 2. Run `npm ci --ignore-scripts`, `npm run check`, `npm test`, and the editor host tests. Compiler tests must run with TeX installed.
 3. Run `npm run package`. Install the resulting VSIX in a disposable editor profile and check live yellow highlights, compiler red squiggles, settings, and macros from an included file.
 4. Commit the release and wait for the repository checks to pass. Create and push a tag matching the manifest, such as `v0.5.0`.
-5. The tag workflow runs checks again, uses the resulting VSIX artifact, and prepares a **draft prerelease**. Review the notes and attached package, then publish it from GitHub Releases.
+5. The tag workflow runs checks again, uses the resulting VSIX artifact, and prepares a **draft prerelease**. Include the README's AI-development and accuracy disclosure in the release notes. Review the notes and attached package, then publish it from GitHub Releases.
 
 The workflows use GitHub's repository token; no marketplace token is required for GitHub release assets. They do not publish to an extension marketplace. A failed check prevents the release job from running.
 

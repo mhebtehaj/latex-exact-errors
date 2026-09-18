@@ -1,5 +1,7 @@
 # LaTeX Exact Errors
 
+**AI-generated software:** This extension was developed with AI-generated code under human direction. It may contain bugs, flag valid LaTeX, or miss errors. Treat its feedback as a guide and verify suspected problems with your LaTeX compiler. The checker runs locally; it does not use AI at runtime or send your documents to an AI service.
+
 **Public beta for Cursor and VS Code.** Catch likely LaTeX mistakes while typing, including commands defined in other project files. The checker provides two independent sources of feedback:
 
 - **LaTeX Live** checks unsaved buffers after a 300 ms typing pause. A likely typo such as `\alhpa` gets a yellow background (configurable) on that command alone; the hover suggests `\alpha`. Its precise range also appears in Problems. Live findings appear as warnings or information, so red error squiggles remain reserved for compiler errors. Cursor may also draw its native warning/information underline.

@@ -6,3 +6,4 @@ node_modules/
 test/results/project-delimiters-*.json
 PLAN.md
 REVIEW.md
+.issue-assistant/

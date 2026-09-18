@@ -125,6 +125,8 @@ The tests exercise direct and delayed errors, macro definitions and arguments, r
 
 For test configuration and contribution instructions, see `CONTRIBUTING.md`; for versioned releases, see `RELEASING.md` and `CHANGELOG.md`. Report reproducible problems in [GitHub Issues](https://github.com/mhebtehaj/latex-exact-errors/issues) using the bug-report form.
 
+New issues are automatically assigned to the maintainer. A scheduled Codex assistant on the maintainer's Mac checks open reports hourly while the Mac and app are running. It may attempt a reproducible bug and open a draft pull request with test results. Public reports and relevant repository code may be processed by AI for this maintenance work; proposed fixes can be incorrect and require human review before merging and releasing. The extension itself still processes documents locally and does not automatically report problems. See [the issue-fix workflow](docs/ISSUE_FIX_ASSISTANT.md) for details.
+
 The checker has a history of local Cursor tests on macOS. The 0.5.0 preparation also passed live and compiler host checks in VS Code on macOS; the current Cursor build closed its disposable test windows before completion. See `VALIDATION.md` for details. Other platform results depend on completed CI runs, not merely the presence of a workflow.
 
 ## Why a companion extension?

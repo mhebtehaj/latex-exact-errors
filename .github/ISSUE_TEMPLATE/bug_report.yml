@@ -1,6 +1,12 @@
 name: Bug report
 description: Report a false warning, missed error, or installation problem.
+labels: [bug]
+assignees: [mhebtehaj]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Reports are public and may be examined by an AI coding assistant to propose a fix. Share only a small example you are comfortable making public. Proposed fixes require maintainer review before release; the extension does not automatically upload documents or report errors.
   - type: input
     id: versions
     attributes:

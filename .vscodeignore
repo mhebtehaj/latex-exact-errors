@@ -13,3 +13,4 @@ docs/**
 CONTRIBUTING.md
 RELEASING.md
 package-lock.json
+.issue-assistant/**

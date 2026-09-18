@@ -40,3 +40,5 @@ For a false warning or missed error, start with a small shareable LaTeX example 
 Add a regression test for changed checking behavior. Keep UTF-16 ranges exact, preserve source order and scope, and report uncertainty when a source location cannot be justified. Live findings must remain distinct from compiler-confirmed errors.
 
 GitHub checks run syntax, unit, real-TeX and editor host tests on Linux, then package the extension. The workflow configuration is not evidence of platform support until a run has passed. Local validation history and limits are in `VALIDATION.md`.
+
+Reports may be examined by an AI coding assistant. It can prepare a draft pull request, but merging and publishing are manual maintainer decisions. See [the issue-fix workflow](docs/ISSUE_FIX_ASSISTANT.md) for scheduling, review, and privacy details.

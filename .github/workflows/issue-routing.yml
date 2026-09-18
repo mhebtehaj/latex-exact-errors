@@ -1,0 +1,27 @@
+name: Route new issues
+
+on:
+  issues:
+    types: [opened, reopened]
+
+permissions:
+  issues: write
+
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Assign the report to the maintainer
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Issue contents are data only. No checkout or issue-provided code is run.
+            const issue = context.payload.issue;
+            if (!issue.assignees.some(user => user.login === 'mhebtehaj')) {
+              await github.rest.issues.addAssignees({
+                ...context.repo,
+                issue_number: issue.number,
+                assignees: ['mhebtehaj'],
+              });
+            }
